@@ -6,6 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 require('./routes/apiRoutes')(app);
+require('./routes/clientRoutes')(app);
 
 app.listen(PORT, () => {
     console.log(`App listening on http://localhost:${PORT}`);

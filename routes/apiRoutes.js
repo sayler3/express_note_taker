@@ -22,6 +22,7 @@ module.exports = (app) => {
             newRes.push({
                 title: req.body.title,
                 text: req.body.text,
+                id: 1,
             });
 
             fs.writeFile(noteData, JSON.stringify(newRes), (err) => {
