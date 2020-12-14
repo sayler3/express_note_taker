@@ -4,7 +4,7 @@ const fs = require("fs");
 
 module.exports = (app) => {
 
-    app.get('/api', (req, res) => {
+    app.get('/api/notes', (req, res) => {
         console.log("This was hit");
         fs.readFile(noteData, 'utf8', (err, data) => {
             if (err) throw err;
@@ -12,7 +12,7 @@ module.exports = (app) => {
         })
     });
 
-    app.post('/api', (req, res) => {
+    app.post('/api/notes', (req, res) => {
         console.log(req.body);
         fs.readFile(noteData, 'utf8', (err, data) => {
             if (err) throw err;
