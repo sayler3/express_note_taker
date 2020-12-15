@@ -1,6 +1,7 @@
 const path = require('path');
 const noteData = path.join(__dirname, "../db/db.json");
 const fs = require("fs");
+const { nanoid } = require('nanoid');
 
 module.exports = (app) => {
 
@@ -19,10 +20,13 @@ module.exports = (app) => {
 
             const newRes = JSON.parse(data);
 
+            let noteID = req.body.id;
+            noteID = nanoid(10);
+
             newRes.push({
                 title: req.body.title,
                 text: req.body.text,
-                id: 1,
+                id: noteID,
             });
 
             fs.writeFile(noteData, JSON.stringify(newRes), (err) => {
